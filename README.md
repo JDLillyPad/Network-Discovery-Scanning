@@ -1,16 +1,25 @@
 # Network-Discovery-Scanning
 
 ## Project Goal
-The Network Discovery and Scanning project uses the Raspberry Pi to do network discovery and scanning with nmap, arp-scan, and netdiscover to map a home network. We can automate these tasks by running a simple script.
+This project was created as part of a cybersecurity home lab to practice foundational SOC skills such as
+network discovery, automation, and change detection.
+
+A Raspberry Pi is used to run scheduled Nmap scans of the local network, store results, and compare
+consecutive scans to identify new or missing devices.
 
 ### Skills Learned
 
 - Reconnaissance, IP ranges, automation basics.
 - Development of critical thinking and problem-solving skills in cybersecurity.
 
-### Tools Used
+### Tools & Technologies
 
-- nmap, arp-scan and netdiscover (In Progress)
+- Raspberry Pi OS Lite
+- Bash scripting
+- Nmap
+- Cron (Linux task scheduler)
+- diff and xargs
+- Git & GitHub
 
 ## Steps
 
@@ -47,5 +56,43 @@ For Arp-Scan
    - O will detect operating system
    - -p- scans all 65535 ports (slow; you can restrict to just the common ports using --top-ports 1000)
 
-## Automate Daily Scan (Coming Soon)
-I want to create a simple bash script to automate this daily scan and compare changes. 
+## Automate Daily Scan
+I want to create a simple bash scripts to automate a daily simple nmap scan and compare changes. 
+
+### Project Structure
+
+scripts/
+- daily_scan.sh        # Runs a network discovery scan and saves output
+- compare_scans.sh     # Compares the two most recent scans for changes
+
+scans/
+- sample_nmap_output.txt   # Sanitized example scan output (In progress)
+
+### How It Works
+
+#### Daily Network Scan
+The `daily_scan.sh` script runs an Nmap ping scan against the local subnet and saves the results
+to a timestamped file. This creates a historical record of network state.
+
+#### Change Detection
+The `compare_scans.sh` script dynamically selects the two most recent scan files and uses `diff`
+to identify differences. This allows detection of new devices or devices that are no longer responding.
+
+#### Automation
+The scan script is scheduled using `cron` to run automatically once per day, ensuring consistent
+and repeatable data collection without manual intervention.
+
+## Skills Demonstrated
+
+- Network discovery and asset awareness
+- Linux command-line proficiency
+- Bash automation
+- Baseline creation and anomaly detection
+- Secure system operation
+
+## Lessons Learned
+
+- Even simple automation can significantly reduce manual effort
+- Establishing a baseline is critical for detecting abnormal behavior
+- Linux pipelines and tools like `xargs` are powerful for chaining tasks together
+- Documentation is as important as the technical implementation
