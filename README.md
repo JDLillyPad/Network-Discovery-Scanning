@@ -46,3 +46,6 @@ For Arp-Scan
    - sV is a service/version detection
    - O will detect operating system
    - -p- scans all 65535 ports (slow; you can restrict to just the common ports using --top-ports 1000)
+
+## Automate Daily Scan (Coming Soon)
+I want to create a simple bash script to automate this daily scan and compare changes. 
