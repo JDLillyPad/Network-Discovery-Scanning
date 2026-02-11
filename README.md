@@ -79,8 +79,16 @@ The `compare_scans.sh` script dynamically selects the two most recent scan files
 to identify differences. This allows detection of new devices or devices that are no longer responding.
 
 #### Automation
-The scan script is scheduled using `cron` to run automatically once per day, ensuring consistent
-and repeatable data collection without manual intervention.
+
+The daily network scan is scheduled using `cron` to run automatically at 2:00 AM each day.
+
+Cron entry used:
+
+0 2 * * * /home/filepathto/daily_scan.sh
+
+This ensures consistent and repeatable baseline collection without requiring manual execution.
+
+Automating the task reduces the risk of missed scans and allows for reliable change detection over time.
 
 ## Skills Demonstrated
 
