@@ -66,7 +66,7 @@ scripts/
 - compare_scans.sh     # Compares the two most recent scans for changes
 
 scans/
-- sample_nmap_output.txt   # Sanitized example scan output (In progress)
+- network_baseline_report.md  # Sanitized baseline summary of detected hosts
 
 ### How It Works
 
