@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # When only one file exists, add the guard
-COUNT=$(ls ~/scans/nmap_*.txt 2>/dev/null | wc -l)
+COUNT=$(ls ~/filepathto/nmap_*.txt 2>/dev/null | wc -l)
 
 if [ "$COUNT" -lt 2 ]; then
   echo "Not enough scans to compare yet."
@@ -11,5 +11,5 @@ fi
 # head -n 2 takes the first two lines
 # xargs diff, takes input from STDIN and turns it into arguments for a command (diff)
 
-ls -t ~/scans/nmap_*.txt | head -n 2 | xargs diff
+ls -t ~/filepathto/nmap_*.txt | head -n 2 | xargs diff
 
